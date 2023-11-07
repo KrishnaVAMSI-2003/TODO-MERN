@@ -1,14 +1,17 @@
 import express from "express";
 import { PORT } from "./utils/constants"
 import { HomeController } from "./controllers/HomeController";
-import { AuthRoute } from "./routes/authRoute";
 import mongoose from "mongoose";
 import { MONGO_URI } from "./utils/constants";
+import { AuthRoute } from "./routes/authRoute";
+import { ProtectedRoute } from "./routes/protectedRoutes";
+import { AuthMiddleware } from "./middlewares/authMiddleware";
 
 const app = express();
 
 app.use(express.json());
 app.use('/auth', AuthRoute);
+app.use('/user', AuthMiddleware, ProtectedRoute);
 
 
 app.get("/", HomeController);

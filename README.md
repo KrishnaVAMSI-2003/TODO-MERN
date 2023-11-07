@@ -1,3 +1,3 @@
 #TODO-MERN
-A fullstack todo aplpication
+A fullstack todo application
 under process...

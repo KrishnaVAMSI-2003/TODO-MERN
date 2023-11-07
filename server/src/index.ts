@@ -4,7 +4,7 @@ import { HomeController } from "./controllers/HomeController";
 import mongoose from "mongoose";
 import { MONGO_URI } from "./utils/constants";
 import { AuthRoute } from "./routes/authRoute";
-import { ProtectedRoute } from "./routes/protectedRoutes";
+import { ProtectedRoute } from "./routes/userRoutes";
 import { AuthMiddleware } from "./middlewares/authMiddleware";
 
 const app = express();
@@ -16,9 +16,7 @@ app.use('/user', AuthMiddleware, ProtectedRoute);
 
 app.get("/", HomeController);
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
 mongoose.connect(MONGO_URI)
     .then(() => console.log("Connected to MongoDB"))

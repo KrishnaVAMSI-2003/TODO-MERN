@@ -61,8 +61,25 @@ const updateTodo = async(req: CustomRequest, res: express.Response) => {
     }
 }
 
-const deleteTodo = (req: express.Request, res: express.Response) => {
-    res.send("Delete Todo");
+const deleteTodo = async(req: CustomRequest, res: express.Response) => {
+    const errors = validationResult(req);
+    if(!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
+
+    try {
+        const user = await User.findById(req.userId).select("-password");
+        if(!user) return res.status(400).json({ errors: [{ msg: "Unauthorized access" }] });
+
+        const todo = await Todo.findByIdAndDelete(req.body.todoId);
+        if(!todo) return res.status(400).json({ errors: [{ msg: "Todo not found" }] });
+
+        const index = user.todos.indexOf(todo._id);
+        if(index > -1) user.todos.splice(index, 1);
+        user.save();
+        
+        return res.status(200).json({msg:"todo successfully deleted", todo});
+    } catch (err) {
+        res.status(400).json({ errors: [{ msg: "Error deleting todo" }] })
+    }
 }
 
 export { alltodos, addTodo, updateTodo, deleteTodo };

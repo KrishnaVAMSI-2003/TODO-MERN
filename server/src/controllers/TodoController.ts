@@ -38,8 +38,27 @@ const addTodo = async(req: CustomRequest, res: express.Response) => {
 }
 
 
-const updateTodo = (req: express.Request, res: express.Response) => {
-    res.send("Update Todo");
+const updateTodo = async(req: CustomRequest, res: express.Response) => {
+    
+    const errors = validationResult(req);
+    if(!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
+
+    try{
+        const todo = await Todo.findById(req.body.todoId);
+        if(todo.userId != req.userId) return res.status(400).json({ errors: [{ msg: "Not authorized to update this todo" }] });
+
+        todo.title = req.body.title;
+        todo.desc = req.body.desc;
+        todo.dueDate = req.body.dueDate;
+        todo.todoType = req.body.todoType;
+
+        todo.save();
+        
+        return res.status(200).json({msg:"todo successfully updated", todo});
+
+    } catch (err) {
+        res.status(400).json({ errors: [{ msg: "Error updating todo" }] })
+    }
 }
 
 const deleteTodo = (req: express.Request, res: express.Response) => {

@@ -6,7 +6,7 @@ const GetUser = async(req: CustomRequest, res: express.Response) => {
 
     try {
         
-        const user = await User.findById(req.userId).select("-password");
+        const user = await User.findById(req.userId).select(["-password", "-todos"]);
         if(!user) return res.status(400).json({ errors: [{ msg: "User not found" }] });
 
         return res.status(200).json({msg:"user successfully fetched", user});

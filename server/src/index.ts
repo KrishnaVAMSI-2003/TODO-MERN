@@ -6,9 +6,11 @@ import { MONGO_URI } from "./utils/constants";
 import { AuthRoute } from "./routes/authRoute";
 import { ProtectedRoute } from "./routes/userRoutes";
 import { AuthMiddleware } from "./middlewares/authMiddleware";
+import cors from "cors";
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use('/auth', AuthRoute);
 app.use('/user', AuthMiddleware, ProtectedRoute);

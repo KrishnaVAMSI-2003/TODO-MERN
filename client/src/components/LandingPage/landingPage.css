@@ -1,0 +1,23 @@
+.landing--bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    background: rgb(0,68,58);
+    background: linear-gradient(171deg, rgba(0,68,58,1) 0%, rgba(0,0,47,1) 10%, rgba(12,0,56,1) 80%, rgba(77,0,42,1) 100%); 
+}
+
+.landing--pg--container{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    box-shadow: 0 0 5px 3px #353535;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+@media only screen and (max-device-width: 1400px) {
+    .landing--pg--container{
+        grid-template-columns: 1fr;
+    }
+}

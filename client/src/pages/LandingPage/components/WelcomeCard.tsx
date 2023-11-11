@@ -1,5 +1,5 @@
-import landingPageIcon from "../../assets/landingImage.jpg";
-import "./welcomeCard.css"
+import landingPageIcon from "../../../assets/landingImage.jpg";
+import "../css/welcomeCard.css"
 
 const WelcomeCard = () => {
     return (

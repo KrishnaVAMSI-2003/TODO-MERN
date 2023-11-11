@@ -1,6 +1,6 @@
-import Auth from "./Auth";
-import WelcomeCard from "./WelcomeCard";
-import "./landingPage.css";
+import Auth from "./components/AuthComponent";
+import WelcomeCard from "./components/WelcomeCard";
+import "./css/landingPage.css";
 
 const LandingPage = () => {
     return (

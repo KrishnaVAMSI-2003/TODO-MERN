@@ -14,17 +14,17 @@ const LoginController = async(req: express.Request, res: express.Response) => {
 
     try{
         const user = await User.findOne().or([{ email }]);
-        if(!user) return res.status(400).json({ errors: [{ msg: "Invalid Email!" }] });
+        if(!user) return res.status(401).json({ errors: [{ msg: "No user found with the given mail" }] });
 
         const isMatch = await bcrypt.compare(password, user.password);
-        if(!isMatch) return res.status(400).json({ errors: [{ msg: "Invalid Password!" }] });
+        if(!isMatch) return res.status(401).json({ errors: [{ msg: "Invalid Password!" }] });
 
         const token = jwt.sign({id: user._id}, SECRET_TOKEN);
 
         return res.status(200).json({msg:"user successfully logged in", user, token});
 
     } catch (err) {
-        return res.status(400).send(err);
+        return res.status(400).send(err.message);
     }
 
 }

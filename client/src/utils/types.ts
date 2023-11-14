@@ -13,6 +13,7 @@ type Todo = {
     todoType: string;
     userId: string;
     _id: string;
+    isCompleted?: boolean;
 };
 
 export type { Data, Todo };

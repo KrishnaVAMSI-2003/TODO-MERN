@@ -13,12 +13,4 @@ const TodoValidationSchema = [
 
 ];
 
-const TodoUpdateSchema = [...TodoValidationSchema, 
-    check("todoId", "Todo Id is required").exists()
-];
-
-const DeleteTodoSchema = [
-    check("todoId", "Todo Id is required").exists()
-]
-
-export { TodoValidationSchema, TodoUpdateSchema, DeleteTodoSchema };
+export { TodoValidationSchema };

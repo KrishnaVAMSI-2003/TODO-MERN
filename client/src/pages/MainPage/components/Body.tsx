@@ -7,13 +7,14 @@ import { Data } from "../../../utils/types";
 type BodyProps = {
     setIsAddPage: Dispatch<any>;
     data: Data;
+    setData: Dispatch<any>;
 }
 
 const Body = (props:BodyProps) => {
-    const {setIsAddPage, data} = props;
+    const {setIsAddPage, data, setData} = props;
     return (
         <div className="body--container">
-            <TodoList todos={data.user.todos}/>
+            <TodoList todos={data.user.todos} setData={setData} setIsAddPage={setIsAddPage}/>
             <SideBar setIsAddPage={setIsAddPage} userDetails={data.user}/>
         </div>
     )

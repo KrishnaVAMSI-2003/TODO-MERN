@@ -17,7 +17,7 @@ const Details = (props:DetailsProps) => {
             </div>
             <hr/>
             <button className="details__todoadd__btn"
-                onClick={() => setIsAddPage(true)}
+                onClick={() => setIsAddPage("add")}
             >+ ADD TODO</button>
         </div>
     )

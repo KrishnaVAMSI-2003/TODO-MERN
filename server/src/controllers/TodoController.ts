@@ -44,7 +44,7 @@ const updateTodo = async(req: CustomRequest, res: express.Response) => {
     if(!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
 
     try{
-        const todo = await Todo.findById(req.body.todoId);
+        const todo = await Todo.findById(req.body._id);
         if(todo.userId != req.userId) return res.status(400).json({ errors: [{ msg: "Not authorized to update this todo" }] });
 
         todo.title = req.body.title;

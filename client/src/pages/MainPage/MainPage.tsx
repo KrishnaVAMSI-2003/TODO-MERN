@@ -7,7 +7,7 @@ import { getDataApi } from "../../services/getDataApi";
 import { Data } from "../../utils/types";
 
 const MainPage = () => {
-    const [isAddPage, setIsAddPage] = useState<boolean>(false);
+    const [isAddPage, setIsAddPage] = useState<string>("");
     const [data, setData] = useState<Data>({
         user:{
             username:"",
@@ -36,8 +36,8 @@ const MainPage = () => {
     return (
         <div className="mainpage--container">
             <NavBar/>
-            <Body setIsAddPage={setIsAddPage} data={data}/>
-            <AddTodo isAddPage={isAddPage} setIsAddPage={setIsAddPage}/>
+            <Body setIsAddPage={setIsAddPage} data={data} setData={setData}/>
+            <AddTodo isAddPage={isAddPage} setIsAddPage={setIsAddPage} data={data}/>
             {err && <div className="mainpage--error">{err}</div>}
         </div>
     )

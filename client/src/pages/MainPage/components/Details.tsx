@@ -10,10 +10,10 @@ const Details = (props:DetailsProps) => {
     return (
         <div className="details--component">
             <div className="details--container">
-                <h3>Details</h3>
-                <p>{userDetails.username}</p>
-                <p>{userDetails.email}</p>
-
+                <h3 style={{margin:"10px"}}>Hello!</h3>
+                <p style={{margin:"10px"}}>{userDetails.username}</p>
+                <span>Your registered email address is:</span>
+                <p style={{margin:"10px"}}>{userDetails.email}</p>
             </div>
             <hr/>
             <button className="details__todoadd__btn"

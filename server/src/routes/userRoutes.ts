@@ -10,6 +10,6 @@ router.get("/", GetUser);
 router.get("/alltodos", alltodos);
 router.post("/addtodo", TodoValidationSchema, addTodo);
 router.put("/updatetodo", TodoUpdateSchema, updateTodo);
-router.delete("/deletetodo", DeleteTodoSchema, deleteTodo);
+router.delete("/deletetodo/:id", deleteTodo);
 
 export { router as ProtectedRoute };

@@ -21,6 +21,7 @@
     border-radius: 10px;
     box-shadow: 0 0 5px rgb(0, 0, 49);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    position: relative;
 }
 .todo__date{
     font-size: 1.1rem;
@@ -42,7 +43,33 @@
     margin: 10px 0;
     font-size: 1.1rem;
 }
-
+.todo__icons__container{
+    position: absolute;
+    top: 20px;
+    right: 15px;
+}
+.icon__container{
+    display: inline-block;
+    margin: 5px;
+    width: fit-content;
+    padding:10px 13px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+.todo__icon{
+    background: transparent;
+    width: 20px;
+}
+.check__icon:hover{
+    background: rgb(0, 207, 0);
+}
+.edit__icon:hover{
+    background: rgb(0, 21, 207);
+}
+.delete__icon:hover{
+    background: rgb(207, 0, 0);
+}
 .sidebar--container{
     padding: 15px;
     background-color: rgb(25, 25, 65);
@@ -67,6 +94,7 @@
     display: block;
     width: 70%;
     margin: 0 auto;
+    margin-top: 50px;
     padding: 10px;
     font-size: 1.3rem;
     border-radius: 10px;

@@ -62,14 +62,13 @@ const updateTodo = async(req: CustomRequest, res: express.Response) => {
 }
 
 const deleteTodo = async(req: CustomRequest, res: express.Response) => {
-    const errors = validationResult(req);
-    if(!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
+    const id = req.params.id;
 
     try {
         const user = await User.findById(req.userId).select("-password");
         if(!user) return res.status(400).json({ errors: [{ msg: "Unauthorized access" }] });
 
-        const todo = await Todo.findByIdAndDelete(req.body.todoId);
+        const todo = await Todo.findByIdAndDelete(id);
         if(!todo) return res.status(400).json({ errors: [{ msg: "Todo not found" }] });
 
         const index = user.todos.indexOf(todo._id);

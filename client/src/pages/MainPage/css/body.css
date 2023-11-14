@@ -1,0 +1,157 @@
+.body--container{
+    flex-grow: 1;
+    width: 100vw;
+    padding:20px;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+.todolist--container{
+    width: 65%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(25, 25, 65);
+    box-shadow: 0 0 5px rgb(0, 0, 49);
+}
+.todo--container{
+    padding:20px;
+    background: rgb(0, 0, 49);
+    margin: 10px;
+    color: aliceblue;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgb(0, 0, 49);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.todo__date{
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding-right: 20px;
+    border-right: 1px solid white;
+}
+.todo__type{
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding-left: 20px;
+}
+.todo__title{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 10px 0;
+}
+.todo__desc{
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.sidebar--container{
+    padding: 15px;
+    background-color: rgb(25, 25, 65);
+    box-shadow: 0 0 5px rgb(0, 0, 49);
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    color: aliceblue;
+}
+.details--component{
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px 20px;
+    width: 80%;
+    height: 50%;
+    background-color: rgb(47, 47, 92);
+    box-shadow: 0 0 5px rgb(0, 0, 49);
+}
+.details__todoadd__btn{
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    border: 1px solid white;
+    background: transparent;
+    color: aliceblue;
+    font-weight: 800;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.details__todoadd__btn:hover{
+    background:rgb(129, 255, 90);
+    cursor: pointer;
+    color: rgb(0, 0, 70)
+}
+.filter--container{
+    width: 80%;;
+    background-color: rgb(47, 47, 92);
+    box-shadow: 0 0 5px rgb(0, 0, 49);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:10px;
+    border-radius: 10px;
+    padding: 15px;
+    color: aliceblue;
+    display: flex;
+}
+.filter__header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.filter__header>h4{
+    font-size: 1.3rem;
+    margin: 10px;
+}
+.filter__clr__btn {
+    background-color: transparent;
+    border: 1px solid aliceblue;
+    color: aliceblue;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding:5px 10px;
+    border-radius: 5px;
+
+}
+.filter__clr__btn:hover{
+    background: white;
+    color: rgb(0, 0, 54);
+}
+.filter__btn{
+    width: 70%;
+    padding:7px 15px ;
+    border-radius: 10px;
+    border: 1px solid white;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.filter__btn:hover {
+    cursor: pointer;
+    background: rgb(255, 219, 88);
+    color: rgb(0, 0, 83);
+}
+.btn__active {
+    color: darkblue;
+    background: rgb(255, 219, 88);
+    box-shadow: 0 0 5px 2px rgb(1, 131, 12);
+}
+@media only screen and (max-device-width:1300px) {
+    .todolist--container{
+        width: 47%;
+    }
+    .sidebar--container{
+        width: 48%;
+    }
+}
+@media only screen and (max-device-width:900px) {
+    .body--container{
+        flex-direction: column-reverse;
+    }
+    .todolist--container{
+        width: 100%;
+    }
+    .sidebar--container{
+        width: 100%;
+    }
+}

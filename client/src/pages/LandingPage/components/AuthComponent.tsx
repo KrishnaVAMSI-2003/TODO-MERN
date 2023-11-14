@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../css/authComponent.css";
-import { loginApi, signupApi } from "../../../services/api";
+import { loginApi, signupApi } from "../../../services/authApi";
 import InputComponent from "./InputComponent";
 import SelectionButtons from "./SelectionButtons";
 import { useNavigate } from "react-router-dom";
@@ -22,6 +22,7 @@ const Auth = () => {
     const [authUser, setAuthUser] = useState<AuthUser>({ username: "", email: "", password: "" });
 
     const loginHandler = async() => {
+        setError("Validating credentials, PLEASE WAIT...");
         try{
             const result = login ? await loginApi(authUser) : await signupApi(authUser);
             if(result.status === 200) {

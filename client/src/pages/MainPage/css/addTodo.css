@@ -1,0 +1,114 @@
+.add--todo--bg{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background: rgb(188, 189, 231);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+    transform: translateY(-100%);
+    transition: 0.3s ease-in-out;
+}
+.display--addpage{
+    z-index: 1;
+    transform: translate(0);
+}
+.add--todo--container {
+    background-color: rgb(39, 42, 51);
+    width: 40%;
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 0 5px rgb(0, 0, 49);
+    margin: 10px;
+    border-radius: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.add__date__type{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.add__inp__date{
+    background: transparent;
+    outline: none;
+    border: 1px solid aliceblue;
+    border-radius: 5px;
+    padding:8px 10px;
+    color: aliceblue;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    cursor:pointer;
+}
+.add__type__menu{
+    padding:10px;
+    font-size:1rem;
+    font-weight: 600;
+    background: transparent;
+    border: 1px solid aliceblue;
+    color: aliceblue;
+    border-radius: 6px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.add__inp__label{
+    line-height: 1;
+    margin: 15px 0 0 0;
+    color: aliceblue;
+    font-size: 1.4rem;
+}
+.add__inp__title{
+    color: aliceblue;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid aliceblue;
+    outline: none;
+    background: none;
+}
+.add__inp__desc{
+    color: aliceblue;
+    font-size: 1rem;
+    line-height: 1.1;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid aliceblue;
+    height: 100px;
+    outline: none;
+    background: none;
+}
+.addtodo--btns--container{
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+.addtodo__btn{
+    color: rgb(0, 0, 49);
+    margin-top: 20px;
+    width: 30%;
+    padding:10px 20px;
+    font-size:1.2rem;
+    font-weight: 600;
+    background-color: transparent;
+    border: 1px solid rgb(0, 0, 49);
+    border-radius: 6px;
+}
+.addtodo__btn:hover{
+    background-color: rgb(27, 109, 6);
+    color: aliceblue;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgb(0, 0, 49);
+}
+.add__cancel__btn:hover{
+    background-color: orangered;
+}

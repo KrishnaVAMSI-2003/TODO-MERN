@@ -13,7 +13,7 @@ const FilterButton = (props:FilterButtonProps) => {
     const handleClick = () => {
         if(filterArray.includes(filter)) {
             setFilterArray((prev:string[])=>{
-                return prev.map((ele) => ele!=filter)
+                return prev.map((ele) => ele!==filter)
             })
         } else {
             setFilterArray((prev:string[])=>[...prev,filter])

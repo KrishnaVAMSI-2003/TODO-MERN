@@ -6,6 +6,8 @@ import { CustomRequest } from "../utils/constants";
 
 const alltodos = async(req: CustomRequest, res: express.Response) => {
 
+    if(!req.userId) return res.status(400).json({ errors: [{ msg: "Unauthorized access" }] });
+    
     try {
         const user = await User.findById(req.userId).select("-password").populate("todos");
         if(!user) return res.status(400).json({ errors: [{ msg: "User not found" }] });
@@ -64,6 +66,7 @@ const updateTodo = async(req: CustomRequest, res: express.Response) => {
 
 const deleteTodo = async(req: CustomRequest, res: express.Response) => {
     const id = req.params.id;
+    if(!id) return res.status(400).json({ errors: [{ msg: "Todo id not provided" }] });
 
     try {
         const user = await User.findById(req.userId).select("-password");

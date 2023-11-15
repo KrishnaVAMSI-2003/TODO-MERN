@@ -5,6 +5,7 @@
     display: flex;
     justify-content: space-around;
     gap: 20px;
+    overflow: scroll;
 }
 .todolist--container{
     width: 65%;
@@ -12,6 +13,7 @@
     border-radius: 10px;
     background-color: rgb(25, 25, 65);
     box-shadow: 0 0 5px rgb(0, 0, 49);
+    overflow: scroll;
 }
 .todo--container{
     padding:20px;

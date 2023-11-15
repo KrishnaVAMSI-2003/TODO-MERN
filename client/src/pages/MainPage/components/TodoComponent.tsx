@@ -53,8 +53,7 @@ const TodoComponent = (props:TodoComponentProps) => {
             }
         })
         try{
-            const res = await updateTodoApi(todo);
-            console.log(res.data, todo)
+            await updateTodoApi(todo);
         } catch (err:any) {
             setErr(err.message);
         }

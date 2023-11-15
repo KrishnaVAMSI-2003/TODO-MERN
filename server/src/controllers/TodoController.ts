@@ -51,6 +51,7 @@ const updateTodo = async(req: CustomRequest, res: express.Response) => {
         todo.desc = req.body.desc;
         todo.dueDate = req.body.dueDate;
         todo.todoType = req.body.todoType;
+        todo.isCompleted = req.body.isCompleted;
 
         todo.save();
         

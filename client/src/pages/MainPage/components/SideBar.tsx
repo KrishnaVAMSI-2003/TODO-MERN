@@ -5,14 +5,16 @@ import { Dispatch } from "react";
 type SideBarProps = {
     setIsAddPage: Dispatch<any>;
     userDetails: any;
+    filterArray:string[];
+    setFilterArray:Dispatch<any>;
 }
 
 const SideBar = (props:SideBarProps) => {
-    const {setIsAddPage, userDetails} = props;
+    const {setIsAddPage, userDetails, filterArray, setFilterArray} = props;
     return(
         <div className="sidebar--container">
             <Details setIsAddPage={setIsAddPage} userDetails={userDetails}/>
-            <FilterComponent/>
+            <FilterComponent setFilterArray={setFilterArray} filterArray={filterArray}/>
         </div>
     )
 }

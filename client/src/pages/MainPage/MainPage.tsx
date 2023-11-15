@@ -7,6 +7,13 @@ import { getDataApi } from "../../services/getDataApi";
 import { Data } from "../../utils/types";
 
 const MainPage = () => {
+
+    useEffect(()=>{
+        const token = localStorage.getItem("token");
+        if(!token) {
+            window.location.href = "/";
+        }
+    },[])
     const [isAddPage, setIsAddPage] = useState<string>("");
     const [data, setData] = useState<Data>({
         user:{
@@ -16,12 +23,11 @@ const MainPage = () => {
         }
     });
     const [err, setErr] = useState<string>("");
-    const token = localStorage.getItem("token");
-    if(!token) {
-        window.location.href = "/";
-    }
+    const [filterArray, setFilterArray] = useState<string[]>([]);
+    
 
     useEffect(() => {
+        
         const getData = async () => {
             try{
                 const res = await getDataApi();
@@ -36,7 +42,7 @@ const MainPage = () => {
     return (
         <div className="mainpage--container">
             <NavBar/>
-            <Body setIsAddPage={setIsAddPage} data={data} setData={setData}/>
+            <Body setIsAddPage={setIsAddPage} data={data} setData={setData} filterArray={filterArray} setFilterArray={setFilterArray}/>
             <AddTodo isAddPage={isAddPage} setIsAddPage={setIsAddPage} data={data}/>
             {err && <div className="mainpage--error">{err}</div>}
         </div>

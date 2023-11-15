@@ -74,6 +74,7 @@ const AddTodo = (props:AddTodoProps) => {
     }
 
     const handleSubmit = async() => {
+        setErr("Processing...")
         try{
             const res = isAddPage.length>3 ? await updateTodoApi(inpTodo) : await addTodoApi(inpTodo);
             setErr("processing please wait!")
@@ -87,7 +88,7 @@ const AddTodo = (props:AddTodoProps) => {
                 })
             }
         } catch (err:any) {
-            setErr(err?.message);
+            setErr("Fill all the fields to proceed! "+err?.message);
         }
     }
     return(
@@ -96,8 +97,9 @@ const AddTodo = (props:AddTodoProps) => {
                 <div className="add__date__type">
                     <input type="date" className="add__inp__date" required onChange={(e)=>handleDateChange(e)} defaultValue={inpTodo?.dueDate}/>
                     <select className="add__type__menu" defaultValue={inpTodo?.todoType} onChange={(e)=>handleTypeChange(e)}>
-                        <option value="official">Personal</option>
-                        <option value="personal">Official</option>
+                        <option value="">Select</option>
+                        <option value="personal">Personal</option>
+                        <option value="official">Official</option>
                         <option value="hobby">Hobby</option>
                     </select>
                 </div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../css/authComponent.css";
 import { loginApi, signupApi } from "../../../services/authApi";
 import InputComponent from "./InputComponent";
@@ -15,7 +15,9 @@ type AuthUser = {
 const Auth = () => {
     
     const navigate = useNavigate();
-    if(localStorage.getItem("token")) { navigate("/main") }
+    useEffect(()=>{
+        if(localStorage.getItem("token")) { navigate("/main") }
+    },[])
 
     const [login, setLogin] = useState<boolean>(true);
     const [error, setError] = useState<string>("");

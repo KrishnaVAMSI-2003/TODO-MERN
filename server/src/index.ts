@@ -18,8 +18,8 @@ app.use('/user', AuthMiddleware, ProtectedRoute);
 
 app.get("/", HomeController);
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+
 
 mongoose.connect(MONGO_URI)
-    .then(() => console.log("Connected to MongoDB"))
+    .then(() => app.listen(PORT, () => console.log(`Server started on port ${PORT}`)))
     .catch((err) => console.log(err));
